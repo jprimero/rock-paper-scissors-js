@@ -37,7 +37,7 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         return "DRAW"
     } else {
-        return isWinner(playerSelection, computerSelection) ? "WINNER" : "FALSE"
+        return isWinner(playerSelection, computerSelection) ? "WINNER" : "LOSER"
     }
 }
 
