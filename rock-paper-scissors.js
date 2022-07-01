@@ -41,12 +41,14 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+// SETUP
 const buttons = document.querySelectorAll('button');
 
 const resultContainer = document.querySelector('#result-container');
 const element = document.createElement('div');
 resultContainer.appendChild(element);
 
+// RESPOND TO WHAT THE PLAYER SELECTS
 buttons.forEach(button => {
     button.addEventListener('click', function (e) {
         const playerSelection = this.id;
