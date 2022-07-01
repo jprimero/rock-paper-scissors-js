@@ -43,11 +43,15 @@ function playRound(playerSelection, computerSelection) {
 
 const buttons = document.querySelectorAll('button');
 
+const resultContainer = document.querySelector('#result-container');
+const element = document.createElement('div');
+resultContainer.appendChild(element);
+
 buttons.forEach(button => {
     button.addEventListener('click', function (e) {
         const playerSelection = this.id;
         const computerSelection = computerPlay();
         const result = playRound(playerSelection, computerSelection);
-        console.log(result);
+        element.textContent = result;
     });
 });
