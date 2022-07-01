@@ -41,18 +41,13 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game(rounds = 5) {
-    for (let i = 0; i < rounds; i++) {
-        const playerSelection = prompt("rock, paper, or scissors?: ");
+const buttons = document.querySelectorAll('button');
 
-        if (OPTIONS.find(x => playerSelection.toLowerCase() == x)) {
-            const computerSelection = computerPlay();
-            console.log(playRound(playerSelection, computerSelection));
-
-        } else {
-            console.log("Valid options: rock, paper or scissors")
-        }
-    }
-}
-
-game();
+buttons.forEach(button => {
+    button.addEventListener('click', function (e) {
+        const playerSelection = this.id;
+        const computerSelection = computerPlay();
+        const result = playRound(playerSelection, computerSelection);
+        console.log(result);
+    });
+});
