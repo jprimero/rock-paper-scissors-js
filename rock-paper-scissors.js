@@ -57,6 +57,18 @@ function resetScore() {
     computerScore = 0;
 }
 
+function checkIfGameWinner() {
+    if (playerScore >= maxScore) {
+        gameResultContainer.textContent = "Congratulations! you won."
+        resetScore();
+    } else if (computerScore >= maxScore) {
+        gameResultContainer.textContent = "Sorry, you lost."
+        resetScore();
+    } else {
+        gameResultContainer.textContent = ""
+    }
+}
+
 
 // SETUP
 const buttons = document.querySelectorAll('button');
@@ -81,14 +93,6 @@ buttons.forEach(button => {
         updateScore(result)
         element.textContent = `Result: ${result} You: ${playerScore} Computer: ${computerScore}`;
 
-        if (playerScore >= maxScore) {
-            gameResultContainer.textContent = "Congratulations! you won."
-            resetScore();
-        } else if (computerScore >= maxScore) {
-            gameResultContainer.textContent = "Sorry, you lost."
-            resetScore();
-        } else {
-            gameResultContainer.textContent = ""
-        }
+        checkIfGameWinner();
     });
 });
