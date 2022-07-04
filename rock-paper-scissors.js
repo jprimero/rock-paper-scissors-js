@@ -45,8 +45,10 @@ function updateScore(result) {
     switch (result) {
         case "WINNER":
             playerScore++;
+            break;
         case "LOSER":
             computerScore++;
+            break;
     }
 }
 
