@@ -77,7 +77,7 @@ buttons.forEach(button => {
         const playerSelection = this.id;
         const computerSelection = computerPlay();
         const result = playRound(playerSelection, computerSelection);
-        console.log(`Previous scores: player=${playerScore} computer=${computerScore}`);
+
         updateScore(result)
         element.textContent = `Result: ${result} You: ${playerScore} Computer: ${computerScore}`;
 
