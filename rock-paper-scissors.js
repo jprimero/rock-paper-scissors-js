@@ -57,8 +57,11 @@ const resultContainer = document.querySelector('#result-container');
 const element = document.createElement('div');
 resultContainer.appendChild(element);
 
+const gameResultContainer = document.querySelector('#game-result-container');
+
 let playerScore = 0;
 let computerScore = 0;
+const maxScore = 5;
 
 // RESPOND TO WHAT THE PLAYER SELECTS
 buttons.forEach(button => {
@@ -66,7 +69,14 @@ buttons.forEach(button => {
         const playerSelection = this.id;
         const computerSelection = computerPlay();
         const result = playRound(playerSelection, computerSelection);
+        console.log(`Previous scores: player=${playerScore} computer=${computerScore}`);
         updateScore(result)
         element.textContent = `Result: ${result} You: ${playerScore} Computer: ${computerScore}`;
+
+        if (playerScore >= maxScore) {
+            gameResultContainer.textContent = "Congratulations! you won."
+        } else if (computerScore >= maxScore) {
+            gameResultContainer.textContent = "Sorry, you lost."
+        }
     });
 });
