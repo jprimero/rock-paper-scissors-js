@@ -41,6 +41,15 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function updateScore(result) {
+    switch (result) {
+        case "WINNER":
+            playerScore++;
+        case "LOSER":
+            computerScore++;
+    }
+}
+
 // SETUP
 const buttons = document.querySelectorAll('button');
 
@@ -48,12 +57,16 @@ const resultContainer = document.querySelector('#result-container');
 const element = document.createElement('div');
 resultContainer.appendChild(element);
 
+let playerScore = 0;
+let computerScore = 0;
+
 // RESPOND TO WHAT THE PLAYER SELECTS
 buttons.forEach(button => {
     button.addEventListener('click', function (e) {
         const playerSelection = this.id;
         const computerSelection = computerPlay();
         const result = playRound(playerSelection, computerSelection);
-        element.textContent = result;
+        updateScore(result)
+        element.textContent = `Result: ${result} You: ${playerScore} Computer: ${computerScore}`;
     });
 });
